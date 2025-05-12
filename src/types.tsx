@@ -10,6 +10,6 @@ export interface LeaderboardItem {
   username: string;
   points: number;
   tags: string[];
-  rank: number;
+
   xp: number;
 }

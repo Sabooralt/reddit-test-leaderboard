@@ -27,7 +27,7 @@ export default function Leaderboard({ items }: LeaderboardProps) {
   }, [items]);
 
   useEffect(() => {
-    const sortedItems = [...items].sort((a, b) => a.rank - b.rank);
+    const sortedItems = [...items].sort((a, b) => b.xp - a.xp);
     setLeaderboardItems(sortedItems);
     setIsLoading(false);
   }, [items]);
@@ -154,6 +154,9 @@ export default function Leaderboard({ items }: LeaderboardProps) {
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-4 sm:px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-16">
+                  #
+                </th>
+                <th className="px-4 sm:px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-16">
                   Rank
                 </th>
                 <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -189,7 +192,10 @@ export default function Leaderboard({ items }: LeaderboardProps) {
                     } hover:bg-gray-100 transition-colors`}
                   >
                     <td className="px-4 sm:px-6 py-4 text-center">
-                      {getRankIcon(item.rank)}
+                      {index + 1}
+                    </td>
+                    <td className="px-4 sm:px-6 py-4 text-center">
+                      {getRankIcon(index + 1)}
                     </td>
                     <td className="px-4 sm:px-6 py-4 font-medium">
                       {item.username}
